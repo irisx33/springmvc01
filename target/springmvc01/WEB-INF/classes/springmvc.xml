@@ -20,15 +20,6 @@ http://www.springframework.org/schema/context/spring-context.xsd
         <property name="suffix" value=".jsp"></property>
     </bean>
 
-    <mvc:annotation-driven>
-<!--        消息转换器-->
-        <mvc:message-converters>
-            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
-                <property name="supportedMediaTypes" value="text/html;charset=UTF-8"></property>
-            </bean>
-        </mvc:message-converters>
-    </mvc:annotation-driven>
-
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
             <list>
@@ -40,6 +31,14 @@ http://www.springframework.org/schema/context/spring-context.xsd
         </property>
     </bean>
 
-    <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
+<!--    <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>-->
 
+    <mvc:annotation-driven conversion-service="conversionService">
+        <!--        消息转换器-->
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes" value="text/html;charset=UTF-8"></property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 </beans>
