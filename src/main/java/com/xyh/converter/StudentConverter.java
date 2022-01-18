@@ -12,9 +12,9 @@ public class StudentConverter implements Converter<String, Student> {
     public Student convert(String s) {
         String[] args = s.split("-");
         Student student = new Student();
-        student.setId(Integer.parseInt(args[0]));
+//        student.setId(Integer.parseInt(args[0]));
         student.setName(args[1]);
-        student.setAge(Integer.parseInt(args[2]));
+//        student.setAge(Integer.parseInt(args[2]));
         return student;
     }
 }
